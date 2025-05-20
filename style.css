@@ -1,17 +1,16 @@
 body {
-    font-family: Arial, sans-serif;
-    /* Alleen voor index.html: flexbox om de login container te centreren */
+    font-family: 'Inter', sans-serif; /* Zorg dat dit ook in de CSS staat */
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    background-color: #f4f4f4; /* Algemene achtergrond */
-    padding: 20px; /* Een beetje padding voor kleine schermen */
-    box-sizing: border-box; /* Zorgt dat padding binnen de breedte valt */
+    background-color: #f4f4f4;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-.container-auth { /* Klasse voor de login container op index.html */
+.container-auth {
     background-color: #fff;
     padding: 30px;
     border-radius: 8px;
@@ -21,7 +20,6 @@ body {
     max-width: 90%;
 }
 
-/* Stijlen voor inlogvelden en knoppen */
 input[type="email"],
 input[type="password"] {
     width: calc(100% - 20px);
