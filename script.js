@@ -1,4 +1,4 @@
-// Stap 1: Je Firebase configuratie (VERVANG DIT MET JE EIGEN CONFIGURATIE!)
+// Firebase Config - PLAK JOUW CONFIG HIER DIE JE KOPIEERT UIT DE CONSOLE
 const firebaseConfig = {
   apiKey: "AIzaSyDTPncO2mOeyIJxqDHv6YPZxd8GXMsVmvU",
   authDomain: "lfmpuntenlogin.firebaseapp.com",
@@ -6,12 +6,18 @@ const firebaseConfig = {
   storageBucket: "lfmpuntenlogin.firebasestorage.app",
   messagingSenderId: "944765155415",
   appId: "1:944765155415:web:ad265f7c1ebdcfc43a0b12",
-  measurementId: "G-01CSRDL101"
+  measurementId: "G-01CSRDL101" // Deze is optioneel, als je hem niet hebt, mag hij weg
 };
 
+// Importeer de benodigde Firebase functies (modulaire syntax)
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-auth.js";
+// import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-analytics.js"; // Optioneel, als je Analytics gebruikt
+
 // Initialiseer Firebase
-firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+// const analytics = getAnalytics(app); // Optioneel, initialiseer alleen als je het nodig hebt
 
 // Bepaal welke pagina we zijn (index.html of puntenoverzicht.html)
 const isLoginPage = window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/');
@@ -38,29 +44,28 @@ if (isLoginPage) {
     const passwordInput = document.getElementById('password');
     const loginBtn = document.getElementById('loginBtn');
 
-    loginBtn.addEventListener('click', () => {
+    loginBtn.addEventListener('click', async () => { // Gebruik async/await voor modern JS
         const email = emailInput.value;
         const password = passwordInput.value;
 
         if (email && password) {
-            auth.signInWithEmailAndPassword(email, password)
-                .then((userCredential) => {
-                    // Succesvolle login, stuur door naar puntenoverzicht.html
-                    console.log("Gebruiker ingelogd:", userCredential.user.email);
-                    window.location.href = 'puntenoverzicht.html'; // Navigeer naar de dashboard pagina
-                })
-                .catch((error) => {
-                    const errorMessage = error.message;
-                    console.error("Fout bij inloggen:", errorMessage);
-                    showMessage(`Inloggen mislukt: ${errorMessage}`, "error");
-                });
+            try {
+                await signInWithEmailAndPassword(auth, email, password);
+                // Succesvolle login, stuur door naar puntenoverzicht.html
+                console.log("Gebruiker ingelogd, doorsturen...");
+                window.location.href = 'puntenoverzicht.html'; // Navigeer naar de dashboard pagina
+            } catch (error) {
+                const errorMessage = error.message;
+                console.error("Fout bij inloggen:", errorMessage);
+                showMessage(`Inloggen mislukt: ${errorMessage}`, "error");
+            }
         } else {
             showMessage("Vul alstublieft zowel e-mailadres als wachtwoord in.", "error");
         }
     });
 
     // Controleer inlogstatus bij laden van index.html
-    auth.onAuthStateChanged((user) => {
+    onAuthStateChanged(auth, (user) => {
         if (user) {
             // Als de gebruiker al is ingelogd, stuur direct door naar het dashboard
             console.log("Gebruiker al ingelogd op index.html, doorsturen...");
@@ -74,23 +79,22 @@ if (isDashboardPage) {
     const logoutBtn = document.getElementById('logoutBtn');
     const userEmailSpan = document.getElementById('user-email');
 
-    logoutBtn.addEventListener('click', () => {
-        auth.signOut()
-            .then(() => {
-                // Succesvol uitgelogd, stuur terug naar de inlogpagina
-                console.log("Gebruiker uitgelogd van puntenoverzicht.html.");
-                window.location.href = 'index.html'; // Navigeer terug naar de login pagina
-            })
-            .catch((error) => {
-                const errorMessage = error.message;
-                console.error("Fout bij uitloggen:", errorMessage);
-                // Je kunt hier eventueel een melding tonen op de dashboard pagina,
-                // maar voor nu loggen we alleen de fout.
-            });
+    logoutBtn.addEventListener('click', async () => { // Gebruik async/await
+        try {
+            await signOut(auth);
+            // Succesvol uitgelogd, stuur terug naar de inlogpagina
+            console.log("Gebruiker uitgelogd van puntenoverzicht.html.");
+            window.location.href = 'index.html'; // Navigeer terug naar de login pagina
+        } catch (error) {
+            const errorMessage = error.message;
+            console.error("Fout bij uitloggen:", errorMessage);
+            // Je kunt hier eventueel een melding tonen op de dashboard pagina,
+            // maar voor nu loggen we alleen de fout.
+        }
     });
 
     // Controleer inlogstatus bij laden van puntenoverzicht.html
-    auth.onAuthStateChanged((user) => {
+    onAuthStateChanged(auth, (user) => {
         if (user) {
             // Gebruiker is ingelogd, toon e-mailadres
             userEmailSpan.textContent = user.email;
