@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puntensysteem M&C</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> <style>
+        /* Specifieke stijlen voor de puntensysteem pagina indien nodig, anders kan dit leeg */
+        body {
+            background-color: #f4f4f4; /* Overrides de body stijl van style.css voor deze pagina */
+            font-family: 'Inter', sans-serif; /* Zorg ervoor dat de lettertype hier ook geladen wordt */
+            padding: 20px; /* Padding voor de content */
+        }
+        .bg-gradient-morgen {
+            background-image: linear-gradient(to bottom right, #fde68a, #f59e0b);
+        }
+        .bg-gradient-avond {
+            background-image: linear-gradient(to bottom right, #4b5563, #1f2937);
+        }
+        .text-shadow-md {
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.15);
+        }
+        .text-shadow-lg {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="mx-auto max-w-4xl bg-white rounded-xl shadow-lg p-8">
+        <header class="mb-8">
+            <h1 class="text-3xl font-bold text-center bg-gradient-morgen text-white rounded-xl px-4 py-3 text-shadow-lg">Puntensysteem Marketing & Communicatie</h1>
+            <p class="text-gray-600 text-center mt-3 text-lg">Hier vind je alle informatie over hoe je punten kunt verdienen!</p>
+        </header>
+
+        <section class="mb-10">
+            <h2 class="text-2xl font-semibold text-blue-700 mb-6">Individuele Punten</h2>
+            <p class="text-gray-600 mb-4">Dit zijn de punten die je zelf kunt verdienen voor je werk.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <article class="bg-gradient-morgen rounded-xl p-6 shadow-md transition-transform hover:scale-105">
+                    <h3 class="text-xl font-semibold text-white mb-4 text-shadow-md">Marketing</h3>
+                    <ul class="space-y-3">
+                        <li class="text-gray-800 font-medium">
+                            <h4 class="text-lg text-white">Discord Bot</h4>
+                            <ul class="list-disc list-inside ml-4 text-gray-100">
+                                <li>1 punt per server benaderd</li>
+                                <li>2 punten per server benaderd (vanaf 15 per week)</li>
+                            </ul>
+                        </li>
+                        <li class="text-gray-800 font-medium">
+                            <h4 class="text-lg text-white">FiveM</h4>
+                            <ul class="list-disc list-inside ml-4 text-gray-100">
+                                <li>1 punt per server benaderd</li>
+                                <li>+2 punten bij succesvol (radio)</li>
+                                <li>+2 punten bij succesvol (command)</li>
+                                <li>2 punten per server benaderd (vanaf 15 per week)</li>
+                                <li>+3 punten bij succesvol (radio)</li>
+                                <li>+3 punten bij succesvol (command)</li>
+                            </ul>
+                        </li>
+                        <li class="text-gray-800 font-medium">
+                            <h4 class="text-lg text-white">Betaalde Promotie</h4>
+                            <ul class="list-disc list-inside ml-4 text-gray-100">
+                                <li>1 punt per server benaderd</li>
+                                <li>+4 punten bij succesvol</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </article>
+
+                <article class="bg-gradient-avond rounded-xl p-6 shadow-md transition-transform hover:scale-105">
+                    <h3 class="text-xl font-semibold text-white mb-4 text-shadow-md">Communicatie & Algemeen</h3>
+                    <ul class="space-y-3">
+                        <li class="text-gray-200 font-medium">
+                            <h4 class="text-lg text-white">Interviews</h4>
+                            <ul class="list-disc list-inside ml-4 text-gray-100">
+                                <li>1 punt per artiest benaderd (Interview 1)</li>
+                                <li>+2 punten bij succesvol</li>
+                                <li>4 punten per uitwerking interview (vooraf) (Interview 2)</li>
+                                <li>4 punten per uitwerking interview (achteraf) (Interview 3)</li>
+                            </ul>
+                        </li>
+                        <li class="text-gray-200 font-medium">
+                            <h4 class="text-lg text-white">Nieuwsbrief</h4>
+                            <ul class="list-disc list-inside ml-4 text-gray-100">
+                                <li>4 punten per nieuwsbrief</li>
+                            </ul>
+                        </li>
+                        <li class="text-gray-200 font-medium">
+                            <h4 class="text-lg text-white">Hoogtepunten</h4>
+                            <ul class="list-disc list-inside ml-4 text-gray-100">
+                                <li>10 punten per uur</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6 text-green-600">Gemeenschappelijke Punten</h2>
+            <p class="text-gray-600 mb-4">Dit zijn de punten die jullie als team kunnen verdienen, bovenop de individuele punten!</p>
+
+            <article class="mb-6 p-6 bg-gradient-to-r from-green-100 to-yellow-100 rounded-xl shadow-md">
+                <h3 class="text-xl font-semibold text-green-700 mb-4">Marketing</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <h4 class="text-lg font-semibold text-gray-700 mb-2">Week</h4>
+                        <ul class="list-disc list-inside space-y-2 text-gray-600">
+                            <li>Discord Bot: </li>
+                            <ul class="list-disc list-inside ml-4">
+                                <li>20 servers → 5 punten</li>
+                                <li>30 servers → 10 punten</li>
+                                <li>40 servers → 15 punten</li>
+                                <li>50 servers → 20 punten</li>
+                            </ul>
+                            <li>FiveM: </li>
+                            <ul class="list-disc list-inside ml-4">
+                                <li>6 servers → 5 punten</li>
+                                <li>12 servers → 10 punten</li>
+                                <li>18 servers → 15 punten</li>
+                                <li>24 servers → 20 punten</li>
+                            </ul>
+                            <li>Betaalde promoties: </li>
+                            <ul class="list-disc list-inside ml-4">
+                                <li>6 servers → 5 punten</li>
+                                <li>12 servers → 10 punten</li>
+                                <li>18 servers → 15 punten</li>
+                                <li>24 servers → 20 punten</li>
+                            </ul>
+                            <li>Iedereen (Marketing): </li>
+                            <ul class="list-disc list-inside ml-4">
+                                <li>1 doel → 2,5 punten</li>
+                                <li>2 doelen → 5 punten</li>
+                                <li>3 doelen → 7,5 punten</li>
+                                <li>4 doelen → 10 punten</li>
+                                <li>5 doelen → 12,5 punten</li>
+                                <li>6 doelen → 15 punten</li>
+                            </ul>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold text-gray-700 mt-4 md:mt-0 mb-2">Maand</h4>
+                        <ul class="list-disc list-inside space-y-2 text-gray-600">
+                            <li>Discord Bot: </li>
+                            <ul class="list-disc list-inside ml-4">
+                                <li>60 servers → 5 punten</li>
+                                <li>70 servers → 10 punten</li>
+                                <li>80 servers → 15 punten</li>
+                                <li>90 servers → 20 punten</li>
+                            </ul>
+                            <li>FiveM: </li>
+                            <ul class="list-disc list-inside ml-4">
+                                <li>18 servers → 5 punten</li>
+                                <li>24 servers → 10 punten</li>
+                                <li>30 servers → 15 punten</li>
+                                <li>36 servers → 20 punten</li>
+                            </ul>
+                            <li>Betaalde promoties: </li>
+                            <ul class="list-disc list-inside ml-4">
+                                <li>18 servers → 5 punten</li>
+                                <li>24 servers → 10 punten</li>
+                                <li>30 servers → 15 punten</li>
+                                <li>36 servers → 20 punten</li>
+                            </ul>
+                            <li>Iedereen (Marketing): </li>
+                            <ul class="list-disc list-inside ml-4">
+                                <li>6 doelen → 2,5 punten</li>
+                                <li>7 doelen → 5 punten</li>
+                                <li>8 doelen → 7,5 punten</li>
+                                <li>9 doelen → 10 punten</li>
+                                <li>10 doelen → 12,5 punten</li>
+                                <li>11 doelen → 15 punten</li>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <article class="mb-6 p-6 bg-gradient-to-r from-purple-100 to-pink-100 rounded-xl shadow-md">
+                <h3 class="text-xl font-semibold text-purple-700 mb-4">Communicatie</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <h4 class="text-lg font-semibold text-gray-700 mb-2">Week</h4>
+                        <ul class="list-disc list-inside space-y-2 text-gray-600">
+                            <li>Interviews Interview 1: </li>
+                            <ul class="list-disc list-inside ml-4">
+                                <li>4 artiesten → 5 punten</li>
+                                <li>8 artiesten → 10 punten</li>
+                                <li>12 artiesten → 15 punten</li>
+                                <li>16 artiesten → 20 punten</li>
+                            </ul>
+                            <li>Interview 2: </li>
+                            <ul class="list-disc list-inside ml-4">
+                                <li>1 uitwerkingen → 2,5 punten</li>
+                                <li>2 uitwerkingen → 5 punten</li>
+                                <li>3 uitwerkingen → 7,5 punten</li>
+                                <li>4 uitwerkingen → 10 punten</li>
+                            </ul>
+                            <li>Interview 3: </li>
+                            <ul class="list-disc list-inside ml-4">
+                                <li>1 uitwerkingen → 2,5 punten</li>
+                                <li>2 uitwerkingen → 5 punten</li>
+                                <li>3 uitwerkingen → 7,5 punten</li>
+                                <li>4 uitwerkingen → 10 punten</li>
+                            </ul>
+                            <li>Iedereen (Communicatie): </li>
+                            <ul class="list-disc list-inside ml-4">
+                                <li>1 doel → 2,5 punten</li>
+                                <li>2 doelen → 5 punten</li>
+                                <li>3 doelen → 7,5 punten</li>
+                                <li>4 doelen → 10 punten</li>
+                                <li>5 doelen → 12,5 punten</li>
+                                <li>6 doelen → 15 punten</li>
+                            </ul>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold text-gray-700 mt-4 md:mt-0 mb-2">Maand</h4>
+                        <ul class="list-disc list-inside space-y-2 text-gray-600">
+                            <li>Interviews Interview 1: </li>
+                            <ul class="list-disc list-inside ml-4">
+                                <li>12 artiesten → 5 punten</li>
+                                <li>16 artiesten → 10 punten</li>
+                                <li>20 artiesten → 15 punten</li>
+                                <li>24 artiesten → 20 punten</li>
+                            </ul>
+                            <li>Interview 2: </li>
+                            <ul class="list-disc list-inside ml-4">
+                                <li>3 uitwerkingen → 2,5 punten</li>
+                                <li>4 uitwerkingen → 5 punten</li>
+                                <li>5 uitwerkingen → 7,5 punten</li>
+                                <li>6 uitwerkingen → 10 punten</li>
+                            </ul>
+                            <li>Interview 3: </li>
+                            <ul class="list-disc list-inside ml-4">
+                                <li>3 uitwerkingen → 2,5 punten</li>
+                                <li>4 uitwerkingen → 5 punten</li>
+                                <li>5 uitwerkingen → 7,5 punten</li>
+                                <li>6 uitwerkingen → 10 punten</li>
+                            </ul>
+                            <li>Iedereen (Communicatie): </li>
+                            <ul class="list-disc list-inside ml-4">
+                                <li>1 doel → 2,5 punten</li>
+                                <li>2 doelen → 5 punten</li>
+                                <li>3 doelen → 7,5 punten</li>
+                                <li>4 doelen → 10 punten</li>
+                                <li>5 doelen → 12,5 punten</li>
+                                <li>6 doelen → 15 punten</li>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <article class="p-6 bg-gradient-to-r from-blue-100 to-emerald-100 rounded-xl shadow-md">
+                <h3 class="text-xl font-semibold text-blue-700 mb-4">Marketing & Communicatie</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Week</h4>
+                        <ul class="list-disc list-inside space-y-2 text-gray-600">
+                            <li>6 doelen → 2,5 punten</li>
+                            <li>7 doelen → 5 punten</li>
+                            <li>8 doelen → 7,5 punten</li>
+                            <li>9 doelen → 10 punten</li>
+                            <li>10 doelen → 12,5 punten</li>
+                            <li>11 doelen → 15 punten</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold text-gray-800 mt-4 md:mt-0 mb-2">Maand</h4>
+                        <ul class="list-disc list-inside space-y-2 text-gray-600">
+                            <li>10 doelen → 2,5 punten</li>
+                            <li>11 doelen → 5 punten</li>
+                            <li>12 doelen → 7,5 punten</li>
+                            <li>13 doelen → 10 punten</li>
+                            <li>14 doelen → 12,5 punten</li>
+                            <li>15 doelen → 15 punten</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <div class="text-center mt-8">
+            <p>Ingelogd als: <span id="user-email"></span></p>
+            <button id="logoutBtn" class="bg-red-500 hover:bg-red-700">Uitloggen</button>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
