@@ -19,10 +19,9 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 // const analytics = getAnalytics(app); // Optioneel, initialiseer alleen als je het nodig hebt
 
-// Bepaal welke pagina we zijn (index.html, puntenoverzicht.html of test.html)
+// Bepaal welke pagina we zijn (index.html of puntenoverzicht.html)
 const isLoginPage = window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/');
 const isDashboardPage = window.location.pathname.endsWith('puntenoverzicht.html');
-const isTestPage = window.location.pathname.endsWith('test.html'); // <-- Nieuw: detecteer test.html
 
 // Functie om berichten weer te geven op de inlogpagina
 function showMessage(message, type) {
@@ -39,9 +38,7 @@ function showMessage(message, type) {
     }
 }
 
-// ---
-
-### Logica voor de index.html (Inlogpagina)
+// *** Logica voor de index.html (Inlogpagina) ***
 if (isLoginPage) {
     const emailInput = document.getElementById('email');
     const passwordInput = document.getElementById('password');
@@ -77,9 +74,7 @@ if (isLoginPage) {
     });
 }
 
----
-
-### Logica voor de puntenoverzicht.html (Dashboard pagina)
+// *** Logica voor de puntenoverzicht.html (Dashboard pagina) ***
 if (isDashboardPage) {
     const logoutBtn = document.getElementById('logoutBtn');
     const userEmailSpan = document.getElementById('user-email');
@@ -109,37 +104,4 @@ if (isDashboardPage) {
             window.location.href = 'index.html';
         }
     });
-}
-
----
-
-### Logica voor script.js (Test pagina)
-    // Controleer inlogstatus bij laden van script.js
-    onAuthStateChanged(auth, (user) => {
-        if (user) {
-            // Gebruiker is ingelogd, toon een welkomstbericht en hun e-mail
-            console.log("Gebruiker ingelogd op script.js:", user.email);
-            }
-        } else {
-            // Gebruiker is NIET ingelogd, stuur terug naar de inlogpagina
-            console.log("Gebruiker niet ingelogd op script.js, doorsturen naar login...");
-            window.location.href = 'index.html';
-        }
-    });
-
-    // Voeg hier de logout functionaliteit toe voor de test pagina, indien gewenst
-    if (logoutBtnTest) {
-        logoutBtnTest.addEventListener('click', async () => {
-            try {
-                await signOut(auth);
-                console.log("Gebruiker uitgelogd van test.html.");
-                window.location.href = 'index.html';
-            } catch (error) {
-                console.error("Fout bij uitloggen vanaf test.html:", error.message);
-            }
-        });
-    }
-
-    // Voeg hier eventuele andere specifieke logica voor test.html toe
-    // Bijvoorbeeld, interacties met knoppen of het laden van data specifiek voor de test pagina.
 }
